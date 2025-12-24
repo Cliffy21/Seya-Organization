@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import SplashScreen from "@/components/layout/SplashScreen";
+import ErrorBoundary from "@/components/ui/ErrorBoundary";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -34,6 +36,37 @@ export const metadata: Metadata = {
     title: "SEYA - Empowered Youth for a Healthy Society",
     description:
       "Empowering youth economically through sports, art, and film in Mombasa County, Kenya.",
+    images: [
+      {
+        url: "https://oracomgroup.co.ke/seya/logo1.png",
+        width: 1200,
+        height: 630,
+        alt: "SEYA Youth Organization",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SEYA - Empowered Youth for a Healthy Society",
+    description:
+      "Empowering youth economically through sports, art, and film in Mombasa County, Kenya.",
+    images: ["https://oracomgroup.co.ke/seya/logo1.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    types: {
+      "application/rss+xml": "/api/feed",
+    },
   },
 };
 
@@ -45,9 +78,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="min-h-screen bg-background font-sans antialiased">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <ErrorBoundary>
+          <SplashScreen />
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </ErrorBoundary>
       </body>
     </html>
   );

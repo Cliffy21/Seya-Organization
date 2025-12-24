@@ -66,3 +66,17 @@ body {
   @apply bg-background text-foreground;
   font-feature-settings: "rlig" 1, "calt" 1;
 }
+
+/* Shimmer animation for loading effect */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}

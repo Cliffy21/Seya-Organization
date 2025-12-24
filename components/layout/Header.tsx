@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -24,7 +25,14 @@ export default function Header() {
       >
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
-            <span className="text-2xl font-bold text-primary">SEYA</span>
+            <Image
+              src="/logo1.png"
+              alt="SEYA Logo"
+              width={180}
+              height={60}
+              className="h-14 w-auto sm:h-16"
+              priority
+            />
           </Link>
         </div>
         <div className="flex lg:hidden">
