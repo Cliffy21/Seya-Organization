@@ -5,6 +5,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SplashScreen from "@/components/layout/SplashScreen";
 import ErrorBoundary from "@/components/ui/ErrorBoundary";
+import WhatsAppButton from "@/components/features/WhatsAppButton";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -83,6 +84,7 @@ export default function RootLayout({
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
+          <WhatsAppButton />
         </ErrorBoundary>
       </body>
     </html>
